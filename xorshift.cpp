@@ -1,13 +1,12 @@
-DWORD xr;
-void sxorshift(DWORD seed) {
-	xr = seed;
+DWORD64 xrl;
+
+VOID SeedXorshift64(DWORD64 ullXor) {
+	xrl = ullXor;
 }
 
-DWORD xorshift() {
-	xr ^= xr << 13;
-	xr ^= xr << 17;
-	xr ^= xr << 5;
-	return xr;
+DWORD64 Xorshift64(VOID) {
+	xrl ^= xrl << 13;
+	xrl ^= xrl >> 17;
+	xrl ^= xrl << 5;
+	return xrl;
 }
-
-// xorshift from mythlas (rewritten)
